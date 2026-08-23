@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-amber: #FD7B03;
+  --color-brand-flame: #FD3502;
+  --color-brand-orange: #F8720E;
+  --color-ink: #0C1922;
+  --color-black: #0D0D0B;
+  --color-cream: #FDF8F4;
+  --color-body-text: #3D4451;
+  --color-muted: #6B7280;
+
+  --gradient-brand: linear-gradient(135deg, var(--color-brand-amber) 0%, var(--color-brand-flame) 100%);
+
+  --radius-card: 16px;
+  --radius-button: 8px;
+
+  --shadow-card: 0 4px 20px rgba(12, 25, 34, 0.04);
+  --shadow-card-hover: 0 10px 30px rgba(12, 25, 34, 0.08);
+}
+
+@layer base {
+  *, ::before, ::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-body-text);
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+
+  /* Reset outline behaviors while maintaining focus styling */
+  *:focus-visible {
+    outline: 2px solid var(--color-brand-orange);
+    outline-offset: 4px;
+  }
+
+  /* Accessibility prefers-reduced-motion hook */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Custom utility classes */
+.bg-gradient-brand {
+  background-image: linear-gradient(135deg, #FD7B03 0%, #FD3502 100%);
+}
+
+.text-gradient-brand {
+  background-image: linear-gradient(135deg, #FD7B03 0%, #FD3502 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
