@@ -1,19 +1,20 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { transitions } from '../../lib/motionTokens';
+// src\components\Card\Card.jsx
+import React from "react";
+import { motion } from "motion/react";
+import { transitions } from "../../lib/motionTokens";
 
 export default function Card({
   children,
-  className = '',
+  className = "",
   hoverEffect = true,
   onClick,
   ...props
 }) {
   const motionProps = hoverEffect
     ? {
-        whileHover: { 
-          y: -6, 
-          transition: transitions.fast 
+        whileHover: {
+          y: -6,
+          transition: transitions.fast,
         },
       }
     : {};

@@ -1,22 +1,23 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { motion, AnimatePresence } from 'motion/react';
-import { 
-  MapPin, 
-  Phone, 
-  Mail, 
-  Clock, 
-  Send, 
-  CheckCircle2, 
-  Sparkles, 
+// src/pages/Contact/Contact.jsx
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Send,
+  CheckCircle2,
+  Sparkles,
   ExternalLink,
-  MessageCircle
-} from 'lucide-react';
-import PageTransition from '../../components/PageTransition/PageTransition';
-import SectionHeading from '../../components/SectionHeading/SectionHeading';
-import Button from '../../components/Button/Button';
-import Card from '../../components/Card/Card';
-import { transitions } from '../../lib/motionTokens';
+  MessageCircle,
+} from "lucide-react";
+import PageTransition from "../../components/PageTransition/PageTransition";
+import SectionHeading from "../../components/SectionHeading/SectionHeading";
+import Button from "../../components/Button/Button";
+import Card from "../../components/Card/Card";
+import { transitions } from "../../lib/motionTokens";
 
 export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -26,7 +27,7 @@ export default function Contact() {
     register,
     handleSubmit,
     reset,
-    formState: { errors }
+    formState: { errors },
   } = useForm();
 
   const onSubmit = async (data) => {
@@ -72,7 +73,9 @@ export default function Contact() {
                         Message Sent Successfully!
                       </h3>
                       <p className="text-sm text-body-text max-w-md mx-auto font-['Plus_Jakarta_Sans']">
-                        Thank you for reaching out. Our engineering team in Lucknow will review your project brief and respond within 24 business hours.
+                        Thank you for reaching out. Our engineering team in
+                        Lucknow will review your project brief and respond
+                        within 24 business hours.
                       </p>
                       <div className="pt-4">
                         <Button
@@ -85,7 +88,10 @@ export default function Contact() {
                       </div>
                     </motion.div>
                   ) : (
-                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                    <form
+                      onSubmit={handleSubmit(onSubmit)}
+                      className="space-y-5"
+                    >
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {/* Name */}
                         <div>
@@ -95,9 +101,13 @@ export default function Contact() {
                           <input
                             type="text"
                             placeholder="Aditya Sharma"
-                            {...register('name', { required: 'Name is required' })}
+                            {...register("name", {
+                              required: "Name is required",
+                            })}
                             className={`w-full px-4 py-2.5 rounded-xl border text-sm bg-cream/40 focus:bg-white text-ink transition-colors font-['Plus_Jakarta_Sans'] ${
-                              errors.name ? 'border-red-500' : 'border-ink/10 focus:border-brand-orange'
+                              errors.name
+                                ? "border-red-500"
+                                : "border-ink/10 focus:border-brand-orange"
                             }`}
                           />
                           {errors.name && (
@@ -115,9 +125,13 @@ export default function Contact() {
                           <input
                             type="tel"
                             placeholder="+91 98765 43210"
-                            {...register('phone', { required: 'Phone number is required' })}
+                            {...register("phone", {
+                              required: "Phone number is required",
+                            })}
                             className={`w-full px-4 py-2.5 rounded-xl border text-sm bg-cream/40 focus:bg-white text-ink transition-colors font-['Plus_Jakarta_Sans'] ${
-                              errors.phone ? 'border-red-500' : 'border-ink/10 focus:border-brand-orange'
+                              errors.phone
+                                ? "border-red-500"
+                                : "border-ink/10 focus:border-brand-orange"
                             }`}
                           />
                           {errors.phone && (
@@ -137,15 +151,18 @@ export default function Contact() {
                           <input
                             type="email"
                             placeholder="aditya@example.com"
-                            {...register('email', {
-                              required: 'Email is required',
+                            {...register("email", {
+                              required: "Email is required",
                               pattern: {
-                                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                message: 'Invalid email address'
-                              }
+                                value:
+                                  /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                message: "Invalid email address",
+                              },
                             })}
                             className={`w-full px-4 py-2.5 rounded-xl border text-sm bg-cream/40 focus:bg-white text-ink transition-colors font-['Plus_Jakarta_Sans'] ${
-                              errors.email ? 'border-red-500' : 'border-ink/10 focus:border-brand-orange'
+                              errors.email
+                                ? "border-red-500"
+                                : "border-ink/10 focus:border-brand-orange"
                             }`}
                           />
                           {errors.email && (
@@ -163,7 +180,7 @@ export default function Contact() {
                           <input
                             type="text"
                             placeholder="Institute or Store Name"
-                            {...register('organization')}
+                            {...register("organization")}
                             className="w-full px-4 py-2.5 rounded-xl border border-ink/10 text-sm bg-cream/40 focus:bg-white text-ink transition-colors font-['Plus_Jakarta_Sans'] focus:border-brand-orange"
                           />
                         </div>
@@ -177,16 +194,32 @@ export default function Contact() {
                             Service Needed *
                           </label>
                           <select
-                            {...register('service', { required: 'Please select a service' })}
+                            {...register("service", {
+                              required: "Please select a service",
+                            })}
                             className="w-full px-4 py-2.5 rounded-xl border border-ink/10 text-sm bg-cream/40 focus:bg-white text-ink transition-colors font-['Plus_Jakarta_Sans'] focus:border-brand-orange"
                           >
-                            <option value="Website Development">Website Development (Starter/Custom)</option>
-                            <option value="Mobile App Development">Mobile App (Android / iOS)</option>
-                            <option value="Portals & MIS">Portals & Custom MIS Dashboard</option>
-                            <option value="Training Management System">Training Management System (TMS)</option>
-                            <option value="Retail E-Commerce">Localized Retail E-Commerce</option>
-                            <option value="AMC & Hosting">AMC & Cloud VPS Hosting</option>
-                            <option value="Other Custom Solution">Other Custom Architecture</option>
+                            <option value="Website Development">
+                              Website Development (Starter/Custom)
+                            </option>
+                            <option value="Mobile App Development">
+                              Mobile App (Android / iOS)
+                            </option>
+                            <option value="Portals & MIS">
+                              Portals & Custom MIS Dashboard
+                            </option>
+                            <option value="Training Management System">
+                              Training Management System (TMS)
+                            </option>
+                            <option value="Retail E-Commerce">
+                              Localized Retail E-Commerce
+                            </option>
+                            <option value="AMC & Hosting">
+                              AMC & Cloud VPS Hosting
+                            </option>
+                            <option value="Other Custom Solution">
+                              Other Custom Architecture
+                            </option>
                           </select>
                         </div>
 
@@ -196,13 +229,21 @@ export default function Contact() {
                             Estimated Budget
                           </label>
                           <select
-                            {...register('budget')}
+                            {...register("budget")}
                             className="w-full px-4 py-2.5 rounded-xl border border-ink/10 text-sm bg-cream/40 focus:bg-white text-ink transition-colors font-['Plus_Jakarta_Sans'] focus:border-brand-orange"
                           >
-                            <option value="₹19,999 - ₹35,000">₹19,999 – ₹35,000 (Starter / Standard)</option>
-                            <option value="₹35,000 - ₹60,000">₹35,000 – ₹60,000 (Standard / Premium)</option>
-                            <option value="₹60,000+">₹60,000+ (Custom Enterprise / Multi-tier)</option>
-                            <option value="Flexible / Need Guidance">Flexible / Need Discovery Scoping</option>
+                            <option value="₹19,999 - ₹35,000">
+                              ₹19,999 – ₹35,000 (Starter / Standard)
+                            </option>
+                            <option value="₹35,000 - ₹60,000">
+                              ₹35,000 – ₹60,000 (Standard / Premium)
+                            </option>
+                            <option value="₹60,000+">
+                              ₹60,000+ (Custom Enterprise / Multi-tier)
+                            </option>
+                            <option value="Flexible / Need Guidance">
+                              Flexible / Need Discovery Scoping
+                            </option>
                           </select>
                         </div>
                       </div>
@@ -215,9 +256,13 @@ export default function Contact() {
                         <textarea
                           rows={4}
                           placeholder="Tell us about the system you want to build, the current bottlenecks, or your desired launch target..."
-                          {...register('message', { required: 'Please provide brief details' })}
+                          {...register("message", {
+                            required: "Please provide brief details",
+                          })}
                           className={`w-full px-4 py-3 rounded-xl border text-sm bg-cream/40 focus:bg-white text-ink transition-colors font-['Plus_Jakarta_Sans'] ${
-                            errors.message ? 'border-red-500' : 'border-ink/10 focus:border-brand-orange'
+                            errors.message
+                              ? "border-red-500"
+                              : "border-ink/10 focus:border-brand-orange"
                           }`}
                         />
                         {errors.message && (
@@ -236,7 +281,9 @@ export default function Contact() {
                           icon={Send}
                           className="w-full sm:w-auto"
                         >
-                          {isSubmitting ? 'Sending Brief...' : 'Send Project Brief'}
+                          {isSubmitting
+                            ? "Sending Brief..."
+                            : "Send Project Brief"}
                         </Button>
                       </div>
                     </form>
@@ -279,7 +326,10 @@ export default function Contact() {
                       <span className="text-xs font-bold uppercase text-ink block font-['Space_Grotesk']">
                         Direct Phone
                       </span>
-                      <a href="tel:+918127015970" className="text-xs text-brand-flame font-semibold hover:underline block mt-0.5">
+                      <a
+                        href="tel:+918127015970"
+                        className="text-xs text-brand-flame font-semibold hover:underline block mt-0.5"
+                      >
                         +91 8127015970
                       </a>
                     </div>
@@ -293,7 +343,10 @@ export default function Contact() {
                       <span className="text-xs font-bold uppercase text-ink block font-['Space_Grotesk']">
                         Email Address
                       </span>
-                      <a href="mailto:privishinnovations@gmail.com" className="text-xs text-body-text hover:text-brand-orange block mt-0.5">
+                      <a
+                        href="mailto:privishinnovations@gmail.com"
+                        className="text-xs text-body-text hover:text-brand-orange block mt-0.5"
+                      >
                         privishinnovations@gmail.com
                       </a>
                     </div>
@@ -335,13 +388,17 @@ export default function Contact() {
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <span className="text-xs font-bold font-['Space_Grotesk']">Lucknow Studio Region</span>
+                    <span className="text-xs font-bold font-['Space_Grotesk']">
+                      Lucknow Studio Region
+                    </span>
                   </div>
                   <span className="text-[10px] text-gray-400">PIN 226022</span>
                 </div>
 
                 <p className="text-xs text-gray-300 font-['Plus_Jakarta_Sans'] leading-relaxed mb-4">
-                  We frequently host on-site discovery workshops and architecture reviews for businesses in Lucknow and surrounding hubs.
+                  We frequently host on-site discovery workshops and
+                  architecture reviews for businesses in Lucknow and surrounding
+                  hubs.
                 </p>
 
                 <a

@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router';
-import { motion, AnimatePresence } from 'motion/react';
-import { ArrowUp } from 'lucide-react';
-import { transitions } from '../../lib/motionTokens';
+// src\components\ScrollToTop\ScrollToTop.jsx
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router";
+import { motion, AnimatePresence } from "motion/react";
+import { ArrowUp } from "lucide-react";
+import { transitions } from "../../lib/motionTokens";
 
 export default function ScrollToTop() {
   const { pathname } = useLocation();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [pathname]);
 
   useEffect(() => {
@@ -21,14 +22,14 @@ export default function ScrollToTop() {
       }
     };
 
-    window.addEventListener('scroll', toggleVisibility, { passive: true });
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
+    return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 

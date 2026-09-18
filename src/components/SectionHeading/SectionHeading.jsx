@@ -1,16 +1,20 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { variants } from '../../lib/motionTokens';
+// src\components\SectionHeading\SectionHeading.jsx
+import React from "react";
+import { motion } from "motion/react";
+import { variants } from "../../lib/motionTokens";
 
 export default function SectionHeading({
   eyebrow,
   title,
   highlight,
   description,
-  align = 'left',
-  className = '',
+  align = "left",
+  className = "",
 }) {
-  const alignClasses = align === 'center' ? 'text-center mx-auto items-center' : 'text-left items-start';
+  const alignClasses =
+    align === "center"
+      ? "text-center mx-auto items-center"
+      : "text-left items-start";
 
   return (
     <motion.div
@@ -26,9 +30,10 @@ export default function SectionHeading({
           {eyebrow}
         </span>
       )}
-      
+
       <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-ink mb-4 font-['Space_Grotesk'] leading-[1.15]">
-        {title} {highlight && <span className="text-gradient-brand">{highlight}</span>}
+        {title}{" "}
+        {highlight && <span className="text-gradient-brand">{highlight}</span>}
       </h2>
 
       {description && (

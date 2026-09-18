@@ -1,7 +1,8 @@
-import React from 'react';
-import PageTransition from '../../components/PageTransition/PageTransition';
-import SectionHeading from '../../components/SectionHeading/SectionHeading';
-import Card from '../../components/Card/Card';
+// src/pages/Legal/PrivacyPolicy.jsx
+import React from "react";
+import PageTransition from "../../components/PageTransition/PageTransition";
+import SectionHeading from "../../components/SectionHeading/SectionHeading";
+import Card from "../../components/Card/Card";
 
 export default function PrivacyPolicy() {
   return (
@@ -23,7 +24,11 @@ export default function PrivacyPolicy() {
                 1. Information We Collect
               </h3>
               <p>
-                When you submit a project inquiry or contact us through our website, we may collect your name, phone number, email address, organization name, and project requirements. We use this information solely to communicate with you and evaluate your project.
+                When you submit a project inquiry or contact us through our
+                website, we may collect your name, phone number, email address,
+                organization name, and project requirements. We use this
+                information solely to communicate with you and evaluate your
+                project.
               </p>
             </div>
 
@@ -32,7 +37,10 @@ export default function PrivacyPolicy() {
                 2. Use of Information
               </h3>
               <p>
-                We do not sell, rent, or distribute your personal contact details to third parties or marketing lists. Your data is used exclusively by our internal team in Lucknow to prepare milestone scopes, proposals, and project communications.
+                We do not sell, rent, or distribute your personal contact
+                details to third parties or marketing lists. Your data is used
+                exclusively by our internal team in Lucknow to prepare milestone
+                scopes, proposals, and project communications.
               </p>
             </div>
 
@@ -41,7 +49,8 @@ export default function PrivacyPolicy() {
                 3. Data Security
               </h3>
               <p>
-                We employ standard industry security protocols to safeguard client data submitted via our digital channels and servers.
+                We employ standard industry security protocols to safeguard
+                client data submitted via our digital channels and servers.
               </p>
             </div>
 
@@ -50,10 +59,15 @@ export default function PrivacyPolicy() {
                 4. Contact for Privacy Inquiries
               </h3>
               <p>
-                If you have questions regarding this Privacy Policy, please reach out to us at{' '}
-                <a href="mailto:privishinnovations@gmail.com" className="text-brand-flame font-semibold underline">
+                If you have questions regarding this Privacy Policy, please
+                reach out to us at{" "}
+                <a
+                  href="mailto:privishinnovations@gmail.com"
+                  className="text-brand-flame font-semibold underline"
+                >
                   privishinnovations@gmail.com
-                </a>.
+                </a>
+                .
               </p>
             </div>
           </Card>

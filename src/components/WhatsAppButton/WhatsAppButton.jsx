@@ -1,10 +1,12 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { MessageCircle } from 'lucide-react';
-import { transitions } from '../../lib/motionTokens';
+// src/components/WhatsAppButton/WhatsAppButton.jsx
+import React from "react";
+import { motion } from "motion/react";
+import { MessageCircle } from "lucide-react";
+import { transitions } from "../../lib/motionTokens";
 
 export default function WhatsAppButton() {
-  const whatsappUrl = "https://wa.me/918127015970?text=Hi%20Privish%20Innovations%2C%20I%20would%20like%20to%20discuss%20a%20project.";
+  const whatsappUrl =
+    "https://wa.me/918127015970?text=Hi%20Privish%20Innovations%2C%20I%20would%20like%20to%20discuss%20a%20project.";
 
   return (
     <motion.div

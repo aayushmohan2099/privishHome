@@ -1,7 +1,8 @@
-import React from 'react';
-import PageTransition from '../../components/PageTransition/PageTransition';
-import SectionHeading from '../../components/SectionHeading/SectionHeading';
-import Card from '../../components/Card/Card';
+// src/pages/Legal/TermsOfService.jsx
+import React from "react";
+import PageTransition from "../../components/PageTransition/PageTransition";
+import SectionHeading from "../../components/SectionHeading/SectionHeading";
+import Card from "../../components/Card/Card";
 
 export default function TermsOfService() {
   return (
@@ -23,7 +24,10 @@ export default function TermsOfService() {
                 1. Engagement & Milestone Structure
               </h3>
               <p>
-                All custom software development contracts are governed by our standard 30/40/30 milestone agreements (or 50/50 for rapid-turnaround tasks). Development commences strictly upon receipt of the upfront milestone commitment.
+                All custom software development contracts are governed by our
+                standard 30/40/30 milestone agreements (or 50/50 for
+                rapid-turnaround tasks). Development commences strictly upon
+                receipt of the upfront milestone commitment.
               </p>
             </div>
 
@@ -32,7 +36,10 @@ export default function TermsOfService() {
                 2. Intellectual Property
               </h3>
               <p>
-                Upon final payment (100% milestone settlement), full rights and ownership of the customized client codebase, database schemas, and designated assets are transferred to the client, subject to standard open-source library licenses.
+                Upon final payment (100% milestone settlement), full rights and
+                ownership of the customized client codebase, database schemas,
+                and designated assets are transferred to the client, subject to
+                standard open-source library licenses.
               </p>
             </div>
 
@@ -41,7 +48,9 @@ export default function TermsOfService() {
                 3. Statutory Jurisdiction
               </h3>
               <p>
-                All commercial agreements and contracts are executed under the legal jurisdiction of the courts of Lucknow, Uttar Pradesh, India, backed by our Udyam MSME statutory compliance guidelines.
+                All commercial agreements and contracts are executed under the
+                legal jurisdiction of the courts of Lucknow, Uttar Pradesh,
+                India, backed by our Udyam MSME statutory compliance guidelines.
               </p>
             </div>
 
@@ -50,10 +59,14 @@ export default function TermsOfService() {
                 4. Contact Details
               </h3>
               <p>
-                For official correspondence, please contact{' '}
-                <a href="mailto:privishinnovations@gmail.com" className="text-brand-flame font-semibold underline">
+                For official correspondence, please contact{" "}
+                <a
+                  href="mailto:privishinnovations@gmail.com"
+                  className="text-brand-flame font-semibold underline"
+                >
                   privishinnovations@gmail.com
-                </a>.
+                </a>
+                .
               </p>
             </div>
           </Card>

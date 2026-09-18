@@ -1,85 +1,131 @@
-import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { transitions } from '../../lib/motionTokens';
+// src/components/Preloader/Preloader.jsx
+import React, { useState } from "react";
+import { motion } from "motion/react";
+import { transitions } from "../../lib/motionTokens";
+import LiveBg from "../LiveBG/LiveBg";
+import Logo from "../../assets/logo/privish-white.png";
 
-export default function Preloader() {
-  const [isVisible, setIsVisible] = useState(false);
+export default function Preloader({ onEnter }) {
+  const [isExiting, setIsExiting] = useState(false);
 
-  useEffect(() => {
-    // Check if user already visited in this session
-    const hasVisited = sessionStorage.getItem('privish-visited');
-    if (!hasVisited) {
-      setIsVisible(true);
-      sessionStorage.setItem('privish-visited', 'true');
-      
-      const timer = setTimeout(() => {
-        setIsVisible(false);
-      }, 1500);
+  const handleEnter = () => {
+    if (isExiting) return;
 
-      return () => clearTimeout(timer);
-    }
-  }, []);
+    setIsExiting(true);
+
+    setTimeout(() => {
+      onEnter();
+    }, 2000);
+  };
 
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          initial={{ opacity: 1 }}
-          exit={{ 
-            opacity: 0, 
-            y: -30,
-            transition: { duration: 0.5, ease: transitions.fluidEase } 
-          }}
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-ink"
-        >
-          {/* Animated P Ribbon Logo */}
-          <div className="relative w-28 h-28 flex items-center justify-center">
-            <svg
-              viewBox="0 0 100 100"
-              className="w-full h-full"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <defs>
-                <linearGradient id="preloaderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#FD7B03" />
-                  <stop offset="100%" stop-color="#FD3502" />
-                </linearGradient>
-              </defs>
-              
-              {/* Path of flowing P Ribbon */}
-              <motion.path
-                d="M32 75 V25 H52 C65 25 72 33 72 45 C72 57 65 65 52 65 H42"
-                stroke="url(#preloaderGrad)"
-                strokeWidth="8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ pathLength: 1, opacity: 1 }}
-                transition={{
-                  duration: 0.9,
-                  ease: "easeInOut",
-                }}
-              />
-            </svg>
-          </div>
+    <motion.div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center overflow-hidden">
+      {/* Base Background - fades to #0C1922 */}
+      <motion.div
+        initial={{ backgroundColor: "#000000" }}
+        animate={{
+          backgroundColor: isExiting ? "#FDF8F4" : "#000000",
+        }}
+        transition={{
+          duration: 2,
+          ease: transitions.fluidEase,
+        }}
+        className="absolute inset-0 z-0"
+      />
 
-          {/* Typography reveal */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.4 }}
-            className="mt-4 text-center"
-          >
-            <h1 className="text-xl font-bold font-['Space_Grotesk'] text-white tracking-widest uppercase">
-              PRIVISH
-            </h1>
-            <span className="text-xs tracking-[0.25em] text-brand-orange font-medium uppercase font-['Plus_Jakarta_Sans']">
-              INNOVATIONS
-            </span>
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+      {/* Live Fluid Background */}
+      <motion.div
+        animate={{
+          opacity: isExiting ? 0 : 1,
+        }}
+        transition={{
+          duration: 2,
+          ease: transitions.fluidEase,
+        }}
+        className="absolute inset-0 z-[1]"
+      >
+        <LiveBg
+          colors={["#FDF8F4", "#FD7B03", "#FD3502"]}
+          speed={0.8}
+          fixed={false}
+        />
+      </motion.div>
+
+      {/* Cinematic Black Bars */}
+      <motion.div
+        initial={{ y: 0 }}
+        animate={{
+          y: "-100%",
+          opacity: isExiting ? 1 : 1,
+        }}
+        transition={{
+          duration: 2,
+          ease: transitions.fluidEase,
+        }}
+        className="absolute top-0 left-0 right-0 h-[50vh] bg-black z-10 "
+      />
+
+      <motion.div
+        initial={{ y: 0 }}
+        animate={{
+          y: "100%",
+          opacity: isExiting ? 1 : 1,
+        }}
+        transition={{
+          duration: 2,
+          ease: transitions.fluidEase,
+        }}
+        className="absolute bottom-0 left-0 right-0 h-[50vh] bg-black z-10 "
+      />
+
+      {/* Logo and Button */}
+      <motion.div
+        initial={{
+          opacity: 0,
+          scale: 0.85,
+          filter: "blur(12px) brightness(1.5)",
+        }}
+        animate={{
+          opacity: isExiting ? 0 : 1,
+          scale: isExiting ? 0.98 : 1,
+          filter: isExiting
+            ? "blur(8px) brightness(1)"
+            : "blur(0px) brightness(1)",
+        }}
+        transition={{
+          duration: isExiting ? 1.2 : 1.5,
+          ease: transitions.fluidEase,
+          delay: isExiting ? 0 : 0.4,
+        }}
+        className="relative z-20 flex flex-col items-center justify-center"
+      >
+        <img
+          src={Logo}
+          alt="Privish Innovations"
+          className="w-32 md:w-40 lg:w-64 h-auto object-contain drop-shadow-[0_0_20px_rgba(100,50,0,1)]"
+        />
+
+        <motion.button
+          type="button"
+          onClick={handleEnter}
+          disabled={isExiting}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{
+            opacity: isExiting ? 0 : 1,
+            y: isExiting ? 8 : 0,
+          }}
+          transition={{
+            delay: isExiting ? 0 : 1.4,
+            duration: isExiting ? 0.5 : 0.6,
+            ease: transitions.fluidEase,
+          }}
+          whileHover={isExiting ? {} : { scale: 1.04 }}
+          whileTap={isExiting ? {} : { scale: 0.97 }}
+          className="mt-8 px-7 py-3 rounded-full bg-brand-orange text-white font-semibold font-['Plus_Jakarta_Sans'] shadow-lg cursor-pointer transition-shadow hover:shadow-xl disabled:cursor-default"
+        >
+          Enter Website
+        </motion.button>
+      </motion.div>
+    </motion.div>
   );
 }

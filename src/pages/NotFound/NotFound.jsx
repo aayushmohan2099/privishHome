@@ -1,9 +1,10 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { Home, ArrowLeft } from 'lucide-react';
-import PageTransition from '../../components/PageTransition/PageTransition';
-import Button from '../../components/Button/Button';
-import { transitions } from '../../lib/motionTokens';
+// src/pages/NotFound/NotFound.jsx
+import React from "react";
+import { motion } from "motion/react";
+import { Home, ArrowLeft } from "lucide-react";
+import PageTransition from "../../components/PageTransition/PageTransition";
+import Button from "../../components/Button/Button";
+import { transitions } from "../../lib/motionTokens";
 
 export default function NotFound() {
   return (
@@ -19,7 +20,13 @@ export default function NotFound() {
               xmlns="http://www.w3.org/2000/svg"
             >
               <defs>
-                <linearGradient id="notFoundGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <linearGradient
+                  id="notFoundGrad"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
                   <stop offset="0%" stop-color="#FD7B03" />
                   <stop offset="100%" stop-color="#FD3502" />
                 </linearGradient>
@@ -44,11 +51,18 @@ export default function NotFound() {
           </h1>
 
           <p className="text-sm text-body-text font-['Plus_Jakarta_Sans'] leading-relaxed">
-            The page you are looking for doesn't exist or has moved. Let's get you back to familiar ground.
+            The page you are looking for doesn't exist or has moved. Let's get
+            you back to familiar ground.
           </p>
 
           <div className="pt-2 flex justify-center gap-3">
-            <Button to="/" variant="primary" size="md" icon={Home} iconPosition="left">
+            <Button
+              to="/"
+              variant="primary"
+              size="md"
+              icon={Home}
+              iconPosition="left"
+            >
               Return Home
             </Button>
             <Button to="/services" variant="secondary" size="md">

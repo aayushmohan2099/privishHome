@@ -1,53 +1,104 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { 
-  Check, 
-  Minus, 
-  HelpCircle, 
-  ArrowRight, 
-  ShieldCheck, 
-  CreditCard, 
+// src/pages/Pricing/Pricing.jsx
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  Check,
+  Minus,
+  HelpCircle,
+  ArrowRight,
+  ShieldCheck,
+  CreditCard,
   ChevronDown,
-  Sparkles
-} from 'lucide-react';
-import PageTransition from '../../components/PageTransition/PageTransition';
-import SectionHeading from '../../components/SectionHeading/SectionHeading';
-import Button from '../../components/Button/Button';
-import Card from '../../components/Card/Card';
-import { transitions } from '../../lib/motionTokens';
+  Sparkles,
+} from "lucide-react";
+import PageTransition from "../../components/PageTransition/PageTransition";
+import SectionHeading from "../../components/SectionHeading/SectionHeading";
+import Button from "../../components/Button/Button";
+import Card from "../../components/Card/Card";
+import { transitions } from "../../lib/motionTokens";
 
 const COMPARISON_ROWS = [
-  { name: 'Core UI & Setup', starter: 'Custom layout', standard: 'Custom layout', premium: 'Custom layout' },
-  { name: 'Customer Interface', starter: true, standard: true, premium: true },
-  { name: 'Admin Console', starter: true, standard: true, premium: true },
-  { name: 'Staff Training & Onboarding', starter: true, standard: true, premium: true },
-  { name: 'Inventory & Stock Control', starter: false, standard: true, premium: true },
-  { name: 'Offers & Promos Engine', starter: false, standard: true, premium: true },
-  { name: 'Push Notifications & Alerts', starter: false, standard: true, premium: true },
-  { name: 'Operational & MIS Reports', starter: false, standard: true, premium: true },
-  { name: 'Razorpay / UPI Integration', starter: false, standard: false, premium: true },
-  { name: 'Coupons & Discount Rules', starter: false, standard: false, premium: true },
-  { name: 'Advanced Analytics Dashboard', starter: false, standard: false, premium: true },
-  { name: 'Custom API Hooks & Webhooks', starter: false, standard: false, premium: true },
+  {
+    name: "Core UI & Setup",
+    starter: "Custom layout",
+    standard: "Custom layout",
+    premium: "Custom layout",
+  },
+  { name: "Customer Interface", starter: true, standard: true, premium: true },
+  { name: "Admin Console", starter: true, standard: true, premium: true },
+  {
+    name: "Staff Training & Onboarding",
+    starter: true,
+    standard: true,
+    premium: true,
+  },
+  {
+    name: "Inventory & Stock Control",
+    starter: false,
+    standard: true,
+    premium: true,
+  },
+  {
+    name: "Offers & Promos Engine",
+    starter: false,
+    standard: true,
+    premium: true,
+  },
+  {
+    name: "Push Notifications & Alerts",
+    starter: false,
+    standard: true,
+    premium: true,
+  },
+  {
+    name: "Operational & MIS Reports",
+    starter: false,
+    standard: true,
+    premium: true,
+  },
+  {
+    name: "Razorpay / UPI Integration",
+    starter: false,
+    standard: false,
+    premium: true,
+  },
+  {
+    name: "Coupons & Discount Rules",
+    starter: false,
+    standard: false,
+    premium: true,
+  },
+  {
+    name: "Advanced Analytics Dashboard",
+    starter: false,
+    standard: false,
+    premium: true,
+  },
+  {
+    name: "Custom API Hooks & Webhooks",
+    starter: false,
+    standard: false,
+    premium: true,
+  },
 ];
 
 const FAQS = [
   {
-    q: 'Can packages be customized for our specific workflow?',
-    a: 'Yes. The tiers represent our baseline standard packages. Custom integrations, proprietary algorithms, multi-tenant databases, or custom hardware connections are scoped transparently during a discovery call.'
+    q: "Can packages be customized for our specific workflow?",
+    a: "Yes. The tiers represent our baseline standard packages. Custom integrations, proprietary algorithms, multi-tenant databases, or custom hardware connections are scoped transparently during a discovery call.",
   },
   {
-    q: 'Who manages server hosting and domain configuration?',
-    a: 'We do. We host client applications on our dedicated high-performance Virtual Private Servers (VPS). This is structured to cost you less while ensuring high uptime, automated backups, and ongoing version maintenance.'
+    q: "Who manages server hosting and domain configuration?",
+    a: "We do. We host client applications on our dedicated high-performance Virtual Private Servers (VPS). This is structured to cost you less while ensuring high uptime, automated backups, and ongoing version maintenance.",
   },
   {
-    q: 'Do you support systems after launch?',
-    a: 'Every build includes standard 30-day post-launch warranty support. After warranty, clients can enroll in our 10-20% AMC service level agreements covering daily backups, security updates, and guaranteed response times.'
+    q: "Do you support systems after launch?",
+    a: "Every build includes standard 30-day post-launch warranty support. After warranty, clients can enroll in our 10-20% AMC service level agreements covering daily backups, security updates, and guaranteed response times.",
   },
   {
-    q: 'What is the standard delivery timeline?',
-    a: 'Starter web systems typically launch in 2-3 weeks. Standard and Premium portals or mobile apps average 4-8 weeks depending on custom feature scope and client feedback turnaround.'
-  }
+    q: "What is the standard delivery timeline?",
+    a: "Starter web systems typically launch in 2-3 weeks. Standard and Premium portals or mobile apps average 4-8 weeks depending on custom feature scope and client feedback turnaround.",
+  },
 ];
 
 export default function Pricing() {
@@ -83,7 +134,8 @@ export default function Pricing() {
                   ₹19,999
                 </div>
                 <p className="text-xs text-body-text mb-6 font-['Plus_Jakarta_Sans']">
-                  Essential high-performance website or basic portal for local businesses.
+                  Essential high-performance website or basic portal for local
+                  businesses.
                 </p>
                 <div className="space-y-3 border-t border-ink/5 pt-4 text-xs font-['Plus_Jakarta_Sans']">
                   <div className="flex items-center gap-2">
@@ -101,7 +153,12 @@ export default function Pricing() {
                 </div>
               </div>
               <div className="pt-8">
-                <Button to="/contact" variant="secondary" size="md" className="w-full">
+                <Button
+                  to="/contact"
+                  variant="secondary"
+                  size="md"
+                  className="w-full"
+                >
                   Choose Starter
                 </Button>
               </div>
@@ -120,7 +177,8 @@ export default function Pricing() {
                   ₹34,999
                 </div>
                 <p className="text-xs text-body-text mb-6 font-['Plus_Jakarta_Sans']">
-                  Comprehensive operational portal with reporting and notifications.
+                  Comprehensive operational portal with reporting and
+                  notifications.
                 </p>
                 <div className="space-y-3 border-t border-ink/5 pt-4 text-xs font-['Plus_Jakarta_Sans']">
                   <div className="flex items-center gap-2">
@@ -138,7 +196,12 @@ export default function Pricing() {
                 </div>
               </div>
               <div className="pt-8">
-                <Button to="/contact" variant="primary" size="md" className="w-full">
+                <Button
+                  to="/contact"
+                  variant="primary"
+                  size="md"
+                  className="w-full"
+                >
                   Choose Standard
                 </Button>
               </div>
@@ -172,7 +235,12 @@ export default function Pricing() {
                 </div>
               </div>
               <div className="pt-8">
-                <Button to="/contact" variant="secondary" size="md" className="w-full">
+                <Button
+                  to="/contact"
+                  variant="secondary"
+                  size="md"
+                  className="w-full"
+                >
                   Choose Premium
                 </Button>
               </div>
@@ -205,41 +273,50 @@ export default function Pricing() {
               </thead>
               <tbody className="divide-y divide-ink/5 text-sm">
                 {COMPARISON_ROWS.map((row) => (
-                  <tr key={row.name} className="hover:bg-cream/30 transition-colors">
+                  <tr
+                    key={row.name}
+                    className="hover:bg-cream/30 transition-colors"
+                  >
                     <td className="py-3.5 px-4 font-medium text-ink text-xs sm:text-sm">
                       {row.name}
                     </td>
                     <td className="py-3.5 px-4 text-center text-xs">
-                      {typeof row.starter === 'boolean' ? (
+                      {typeof row.starter === "boolean" ? (
                         row.starter ? (
                           <Check className="w-4 h-4 text-brand-orange mx-auto" />
                         ) : (
                           <Minus className="w-4 h-4 text-gray-300 mx-auto" />
                         )
                       ) : (
-                        <span className="font-semibold text-body-text">{row.starter}</span>
+                        <span className="font-semibold text-body-text">
+                          {row.starter}
+                        </span>
                       )}
                     </td>
                     <td className="py-3.5 px-4 text-center text-xs">
-                      {typeof row.standard === 'boolean' ? (
+                      {typeof row.standard === "boolean" ? (
                         row.standard ? (
                           <Check className="w-4 h-4 text-brand-orange mx-auto" />
                         ) : (
                           <Minus className="w-4 h-4 text-gray-300 mx-auto" />
                         )
                       ) : (
-                        <span className="font-semibold text-body-text">{row.standard}</span>
+                        <span className="font-semibold text-body-text">
+                          {row.standard}
+                        </span>
                       )}
                     </td>
                     <td className="py-3.5 px-4 text-center text-xs">
-                      {typeof row.premium === 'boolean' ? (
+                      {typeof row.premium === "boolean" ? (
                         row.premium ? (
                           <Check className="w-4 h-4 text-brand-orange mx-auto" />
                         ) : (
                           <Minus className="w-4 h-4 text-gray-300 mx-auto" />
                         )
                       ) : (
-                        <span className="font-semibold text-body-text">{row.premium}</span>
+                        <span className="font-semibold text-body-text">
+                          {row.premium}
+                        </span>
                       )}
                     </td>
                   </tr>
@@ -271,7 +348,8 @@ export default function Pricing() {
                 Upfront Commitment
               </h4>
               <p className="text-xs text-body-text leading-relaxed font-['Plus_Jakarta_Sans']">
-                Initial milestone upon contract signing to finalize system architecture, data schemas, and UI wireframes.
+                Initial milestone upon contract signing to finalize system
+                architecture, data schemas, and UI wireframes.
               </p>
             </div>
 
@@ -283,7 +361,8 @@ export default function Pricing() {
                 Functional System Milestone
               </h4>
               <p className="text-xs text-body-text leading-relaxed font-['Plus_Jakarta_Sans']">
-                Due only after a working, testable version is deployed to a staging environment where you can log in and verify features.
+                Due only after a working, testable version is deployed to a
+                staging environment where you can log in and verify features.
               </p>
             </div>
 
@@ -295,7 +374,8 @@ export default function Pricing() {
                 Launch & Handover
               </h4>
               <p className="text-xs text-body-text leading-relaxed font-['Plus_Jakarta_Sans']">
-                Final milestone upon production rollout, domain pointing, SSL verification, and staff handover training.
+                Final milestone upon production rollout, domain pointing, SSL
+                verification, and staff handover training.
               </p>
             </div>
           </div>
@@ -330,7 +410,7 @@ export default function Pricing() {
                     <span>{faq.q}</span>
                     <ChevronDown
                       className={`w-5 h-5 text-brand-orange transition-transform duration-200 shrink-0 ${
-                        isOpen ? 'rotate-180' : ''
+                        isOpen ? "rotate-180" : ""
                       }`}
                     />
                   </button>
@@ -338,7 +418,7 @@ export default function Pricing() {
                     {isOpen && (
                       <motion.div
                         initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
+                        animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         transition={transitions.fast}
                         className="overflow-hidden"

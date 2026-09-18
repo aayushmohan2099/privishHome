@@ -1,6 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router';
-import { Mail, Phone, MapPin, Clock, ShieldCheck, ArrowUpRight } from 'lucide-react';
+// src\components\Layout\Footer.jsx
+import React from "react";
+import { Link } from "react-router";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
+  ShieldCheck,
+  ArrowUpRight,
+} from "lucide-react";
 
 export default function Footer() {
   return (
@@ -23,7 +31,14 @@ export default function Footer() {
           {/* Right Skyline */}
           <path d="M700 110 H760 V90 H800 V60 C840 40, 880 20, 920 40 V60 H960 V80 H1000 V95 H1200" />
           {/* Ground Baseline */}
-          <line x1="0" y1="110" x2="1200" y2="110" strokeWidth="2" stroke="rgba(253, 123, 3, 0.4)" />
+          <line
+            x1="0"
+            y1="110"
+            x2="1200"
+            y2="110"
+            strokeWidth="2"
+            stroke="rgba(253, 123, 3, 0.4)"
+          />
         </svg>
       </div>
 
@@ -40,7 +55,13 @@ export default function Footer() {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <defs>
-                    <linearGradient id="footerLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <linearGradient
+                      id="footerLogoGrad"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="100%"
+                    >
                       <stop offset="0%" stop-color="#FD7B03" />
                       <stop offset="100%" stop-color="#FD3502" />
                     </linearGradient>
@@ -65,7 +86,8 @@ export default function Footer() {
             </Link>
 
             <p className="text-sm text-gray-400 leading-relaxed font-['Plus_Jakarta_Sans'] pt-2">
-              "We help startups, businesses and organizations build, automate and grow with technology."
+              "We help startups, businesses and organizations build, automate
+              and grow with technology."
             </p>
 
             {/* Compliance Badges */}
@@ -87,8 +109,22 @@ export default function Footer() {
               Navigation
             </h3>
             <ul className="space-y-2.5 text-sm font-['Plus_Jakarta_Sans']">
-              {['Home', 'About Us', 'Services', 'Work & Concepts', 'Pricing & Packages', 'Contact'].map((name, idx) => {
-                const paths = ['/', '/about', '/services', '/work', '/pricing', '/contact'];
+              {[
+                "Home",
+                "About Us",
+                "Services",
+                "Work & Concepts",
+                "Pricing & Packages",
+                "Contact",
+              ].map((name, idx) => {
+                const paths = [
+                  "/",
+                  "/about",
+                  "/services",
+                  "/work",
+                  "/pricing",
+                  "/contact",
+                ];
                 return (
                   <li key={name}>
                     <Link
@@ -110,32 +146,50 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2.5 text-sm text-gray-400 font-['Plus_Jakarta_Sans']">
               <li>
-                <Link to="/services#website" className="hover:text-brand-orange transition-colors">
+                <Link
+                  to="/services#website"
+                  className="hover:text-brand-orange transition-colors"
+                >
                   Web Applications & Portals
                 </Link>
               </li>
               <li>
-                <Link to="/services#mobile" className="hover:text-brand-orange transition-colors">
+                <Link
+                  to="/services#mobile"
+                  className="hover:text-brand-orange transition-colors"
+                >
                   Cross-Platform Mobile Apps
                 </Link>
               </li>
               <li>
-                <Link to="/services#portals" className="hover:text-brand-orange transition-colors">
+                <Link
+                  to="/services#portals"
+                  className="hover:text-brand-orange transition-colors"
+                >
                   Custom MIS & Dashboards
                 </Link>
               </li>
               <li>
-                <Link to="/services#tms" className="hover:text-brand-orange transition-colors">
+                <Link
+                  to="/services#tms"
+                  className="hover:text-brand-orange transition-colors"
+                >
                   Training Management Systems (TMS)
                 </Link>
               </li>
               <li>
-                <Link to="/services#ecommerce" className="hover:text-brand-orange transition-colors">
+                <Link
+                  to="/services#ecommerce"
+                  className="hover:text-brand-orange transition-colors"
+                >
                   Localized Retail E-Commerce
                 </Link>
               </li>
               <li>
-                <Link to="/services#amc" className="hover:text-brand-orange transition-colors">
+                <Link
+                  to="/services#amc"
+                  className="hover:text-brand-orange transition-colors"
+                >
                   AMC & Cloud VPS Hosting
                 </Link>
               </li>
@@ -154,13 +208,19 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-brand-orange shrink-0" />
-                <a href="tel:+918127015970" className="hover:text-white transition-colors">
+                <a
+                  href="tel:+918127015970"
+                  className="hover:text-white transition-colors"
+                >
                   +91 8127015970
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-brand-orange shrink-0" />
-                <a href="mailto:privishinnovations@gmail.com" className="hover:text-white transition-colors">
+                <a
+                  href="mailto:privishinnovations@gmail.com"
+                  className="hover:text-white transition-colors"
+                >
                   privishinnovations@gmail.com
                 </a>
               </div>
@@ -174,9 +234,15 @@ export default function Footer() {
 
         {/* Bottom Sub-bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500 font-['Plus_Jakarta_Sans']">
-          <p>© {new Date().getFullYear()} Privish Innovations. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} Privish Innovations. All rights
+            reserved.
+          </p>
           <div className="flex items-center gap-6">
-            <Link to="/privacy-policy" className="hover:text-gray-300 transition-colors">
+            <Link
+              to="/privacy-policy"
+              className="hover:text-gray-300 transition-colors"
+            >
               Privacy Policy
             </Link>
             <Link to="/terms" className="hover:text-gray-300 transition-colors">

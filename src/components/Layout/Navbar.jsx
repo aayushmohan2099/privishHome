@@ -1,3 +1,4 @@
+// src\components\Layout\Navbar.jsx
 import React, { useState, useEffect } from "react";
 import { NavLink, Link, useLocation } from "react-router";
 import { motion, AnimatePresence } from "motion/react";
@@ -47,7 +48,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
-        <Link to="/" className="flex items-center gap-3 group">
+        <a href="/" className="flex items-center gap-3 group">
           <div className="relative w-9 h-9 flex items-center justify-center rounded-xl bg-ink text-white shadow-sm overflow-hidden group-hover:scale-105 transition-transform duration-200">
             <svg
               viewBox="0 0 100 100"
@@ -89,7 +90,7 @@ export default function Navbar() {
               INNOVATIONS
             </span>
           </div>
-        </Link>
+        </a>
 
         {/* Desktop Navigation Links */}
         <nav className="hidden md:flex items-center gap-1 bg-white/70 backdrop-blur-sm px-3 py-1.5 rounded-full border border-ink/5 shadow-xs">
